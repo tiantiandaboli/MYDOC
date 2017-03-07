@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3Zz</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+  }
+  body{
+    background: lightgrey;
+  }
+  #mian{
+    width: 470px;
+    height: auto;
+    border-radius: 6px;
+    background: white;
+    margin: 10px auto;
+    padding: 10px;
+  }
+  li{
+    list-style: none;
+    margin: 5px;
+  }
+  input{
+    border: solid 1px lightgrey;
+    border-radius: 3px;
+    height: 25px;
+  }
+  #content{
+    width: 460px;
+    height: 75px;
+    padding-top: 0px;
+    border: solid 1px #B9B4B4;
+    border-radius: 3px;
+  }
+  #picture{
+    width: 245px;
+    height: 25px;
+    float: right;
+  }
+  #picture img{
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin:0 2px;
+  }
+  #picture li{
+    margin: 0 2px;
+    width: 25px;
+    height: 25px;
+    float: left;
+  }
+  #button{
+    background: lightblue;
+    color:white;
+    float: right;
+    margin-left: 10px;
+    width: 110px;
+    height: 27px;
+  }
+  #number{
+    float: right;
+  }
+  #top{
+    height: 185px;
+  }
+  #top1{
+    width: 460px;
+    height: 27px;
+    background: #C2FBF5;
+    padding-left: 10px;
+    padding-top:7px; 
+  }
+  #top1 p{
+    background: white;
+    width: 80px;
+    height: 27px;
+    text-align: center;
+  } 
+  #buttom ul li img{
+    width: 50px;
+    height: 50px;
+    border: solid 2px lightgrey;
+    border-radius: 5px;
+    float: left;
+  }
+  #buttom ul li div{
+    width: 390px;
+    float: left;
+    margin-left: 10px;
+  }
+  #buttom ul li{
+    border-bottom: dashed 2px lightgrey;
+    height: 60px;
+  }
+  #buttom ul li div p a{
+    text-decoration: none;
+    color: #106B90;
+  }
+  #time span{
+    color: #9FE7FA;
+    font-size: 12px;
+    margin: 5px 0;
+  }
+  #time a{
+    float: right;
+    color: lightgrey;
+    font-size: 14px;
+    display: none;
+  }
+  .op100{
+    border: solid 1px #F77B3A;
+    opacity: 1;
+    border-radius: 2px;
+  }
+  .op50{
+    opacity: 0.5;
+  }
+</style>
+<script type="text/javascript">
+function who() {
+  var uho = document.getElementById('buttom').getElementsByTagName('li');
+  /**********评论************/
+  for(i=0;i<uho.length;i++){
+    uho[i].index = i;
+    uho[i].onmouseover = function() {
+      var rho = this.getElementsByTagName('a');
+      rho[1].style.display = "block";
+      this.style.background = "#EAE6E6";
+    }
+    uho[i].onmouseout = function() {
+      var rho = this.getElementsByTagName('a');
+      rho[1].style.display = "none";
+      this.style.background = "white";
+    }
+    /********删除********/
+    uho[i].onclick = function() {
+      document.getElementById('buttom').getElementsByTagName('ul')[0].removeChild(this);
+    }
+    var iho = uho[i].getElementsByTagName('a');
+    for(j=0;j<iho.length;j++){
+      iho[j].onmouseover = function() {
+        this.style.textDecoration = "underline";
+      }
+      iho[j].onmouseout = function() {
+        this.style.textDecoration = "none";
+      }
+    }
+  }
+  /***********头像样式************/
+  var eho =document.getElementById('picture').getElementsByTagName('li');
+  var n = 0;
+  var qho = function() {
+    this.setAttribute('class','op100');
+  }
+  var qho1 = function() {
+    this.setAttribute('class','op50');
+  }
+  for(i=0;i<eho.length;i++){
+    eho[i].index = i;
+    eho[i].onmouseover = function() {
+      this.setAttribute('class','op100');
+    }
+    eho[i].onmouseout = function() {
+      if(n!==this.index){
+        this.setAttribute('class','op50');
+      }
+    }
+    eho[i].onclick = function() {
+      this.setAttribute('class','op100');
+      eho[n].setAttribute('class','op50');
+      n = this.index;
+    }
+  }
+  /***********字数**************/
+  var jho = document.getElementsByTagName('textarea')[0];
+  jho.onkeydown = function() {
+    document.getElementById('number').getElementsByTagName('span')[0].innerHTML = 140 - jho.value.length;
+    if(jho.value.length>=140){
+      alert("Too More!");
+    }
+  }
+/*************发布**************/
+}
+function submit(){
+  var bho = document.getElementById('buttom').getElementsByTagName('li')[0].cloneNode(true);
+  var pic;
+  /*****cotent******/
+  bho.getElementsByTagName('a')[0].innerHTML = document.getElementById('name').value;
+  bho.getElementsByTagName('span')[0].innerHTML = document.getElementsByTagName('textarea')[0].value;
+  /******picture*****/
+  var lho = document.getElementById('picture').getElementsByTagName('li');
+  for(i=0;i<lho.length;i++){
+    var hho = lho[i].getAttribute('class');
+    if(hho == 'op100'){
+      pic = lho[i].getElementsByTagName('img')[0].getAttribute('src');
+    }
+  }
+  bho.getElementsByTagName('img')[0].setAttribute('src',pic);
+  /******time********/
+  var time = new Date();
+  var hour = time.getHours();
+  var minute = time.getMinutes();
+  var month = time.getMonth() + 1;
+  bho.getElementsByTagName('span')[1].innerHTML = month + '月' + time.getDate() + '日' + hour + ":" + minute;
+  var list = document.getElementById('buttom').getElementsByTagName('ul')[0];
+  list.insertBefore(bho,list.childNodes[0]);
+  who();
+}
+</script>
+<body onload="who()">
+  <div id="mian">
+    <div id="top">
+      <ul>
+        <li>来，说说你在做什么，想什么</li>
+        <li>
+          <input type="text" id="name">
+          <ul id="picture">
+            <li class="op100"><img src="../picture/129.jpg"></li>
+            <li class="op50"><img src="../picture/130.jpg"></li>
+            <li class="op50"><img src="../picture/146.jpg"></li>
+            <li class="op50"><img src="../picture/366.jpg"></li>
+            <li class="op50"><img src="../picture/376.jpg"></li>
+            <li class="op50"><img src="../picture/486.jpg"></li>
+            <li class="op50"><img src="../picture/627.jpg"></li>
+            <li class="op50"><img src="../picture/129.jpg"></li>
+          </ul>
+        </li>
+        <li><textarea id="content"> </textarea></li>
+        <li id="number">还能输入<span>140</span>个字<input type="button" id="button" value="submit" onclick="submit()"></li>
+      </ul>
+    </div>
+    <div id="buttom">
+      <div id="top1"><p>大家在说</p></div>
+      <ul>
+        <li>
+          <img src="../picture/129.jpg">
+          <div>
+            <p><a href="#">智障</a>: <span>333</span></p>
+            <p id="time"><span >12月6日 10:07</span><a href="#">delete</a></p>
+          </div>
+        </li>
+        <li>
+          <img src="../picture/129.jpg">
+          <div>
+            <p><a href="#">智障</a>: <span>4444444444</span></p>
+            <p id="time"><span >12月6日 10:07</span><a href="#">delete</a></p>
+          </div>
+        </li>
+        <li>
+          <img src="../picture/129.jpg">
+          <div>
+            <p><a href="#">智障</a>: <span>555555555555555</span></p>
+            <p id="time"><span >12月6日 10:07</span><a href="#">delete</a></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html> 

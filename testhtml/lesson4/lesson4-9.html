@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3Zz</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+  }
+  div{
+    width: 550px;
+    height: 30px;
+    margin: 10px auto;
+  }
+  li{
+    float: left;
+    list-style-type: none;
+    width: 20px;
+    height: 20px;
+    background: url(../picture/129.jpg);
+  }
+  #yho{
+    float: left;
+  }
+  #eho{
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
+    background: #E5DDDD;
+    margin-left: 500px;
+    width: 100px;
+  }
+</style>
+<script type="text/javascript">
+window.onload = function(){
+  var gho = document.getElementsByTagName('li');
+  var tho = ["1111111111","22222222222","3333333333","4444444444","5555555555"];
+  var rho = document.getElementsByTagName('p');
+  for(i=0;i<gho.length;i++){
+    gho[i].index = i;
+    gho[i].onmouseover = function(){
+      rho[0].style.display = "block";
+      rho[0].innerHTML = tho[this.index];
+      for(k=0;k<gho.length;k++){
+        gho[k].style.background = "url(../picture/129.jpg)";
+      }
+      for(j=0;j<=this.index;j++){
+        gho[j].style.background = "url(../picture/130.jpg)";
+      }
+    }
+    gho[i].addEventListener("mouseout",Dho);
+    gho[i].onclick = function(){
+      for(j=0;j<5;j++){
+        gho[j].index = j;
+        gho[j].removeEventListener("mouseout",Dho);
+        rho[0].style.display = "block";
+        gho[j].style.background = "url(../picture/129.jpg)";
+      }
+      for(j=0;j<=this.index;j++){
+        gho[j].style.background = "url(../picture/130.jpg)";
+      }
+    }
+  }
+}
+var rho = document.getElementsByTagName('p');
+var gho = document.getElementsByTagName('li');
+function Dho(){
+  for(i=0;i<gho.length;i++){
+    gho[i].style.background = "url(../picture/129.jpg)";
+    rho[0].style.display = "none";
+    }
+}
+</script>
+<body>
+  <div><span id="yho">点击星星打分</span>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+  <p id="eho" style="display: none;"></p>
+</body>
+</html> 

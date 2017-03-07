@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wannianli</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+  	width: 500px;
+  	margin: 10px auto;
+  }
+</style>
+<script type="text/javascript">
+  function gho() {
+    var tho =document.getElementsByTagName('input');
+    if(parseInt(tho[0].value)>parseInt(tho[1].value)){
+      document.getElementsByTagName('span')[1].innerHTML = tho[0].value;
+    }
+    else{
+      document.getElementsByTagName('span')[1].innerHTML = tho[1].value;
+    }
+  }
+</script>
+<body>
+  <div>
+    <p><input type="text"><span> VS </span><input type="text"><input type="button" value="max" onclick="gho()"><span> ? </span></p>
+  </div>
+</body>
+</html> 

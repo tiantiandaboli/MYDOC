@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>网页换色</title>
+    <style type="text/css">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      ul li{
+        float: left;
+        width: 16%;
+        height: 25px;
+        list-style-type: none;
+        background-color: green;
+        border-style: solid;
+        border-width: 1px;
+        border-color: white;
+        font-size: 12px;
+        text-align: center;
+        line-height: 25px;
+      }
+      a{
+        text-decoration: none;
+        color:white;
+      }
+      body{
+        background-color: lightgreen;
+      }
+      #title{
+        height: 15%;
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+        float: left;
+        padding-left: 400px;
+      }
+      #red{
+        float: left;
+        border-style: solid;
+        border-width: 4px;
+        border-color: red;
+        width: 6px;
+        height: 6px;
+        margin: 4px;
+        background-color: red;
+        list-style-type: none;
+      }
+      #green{
+        float: left;
+        border-style: solid;
+        border-width: 4px;
+        border-color: green;
+        width: 6px;
+        height: 6px;
+        margin: 4px;
+        background-color: green;
+        list-style-type: none;
+      }
+      #black{
+        float: left;
+        border-style: solid;
+        border-width: 4px;
+        border-color: black;
+        width: 6px;
+        height: 6px;
+        margin: 4px;
+        background-color: black;
+        list-style-type: none;
+      }
+      #changecolor{
+        position: relative;
+        padding-left: 400px;
+        float: left;
+      }
+      #changecolor li.current{
+        background-color: white;
+
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="green.css">
+    <script type="text/javascript">
+      window.onload = function(){
+        var olink = document.getElementsByTagName('link')[0];
+        var oskin = document.getElementById('changecolor').getElementsByTagName('li');
+        for(i=0;i<oskin.length;i++){
+          oskin[i].onclick = function(){
+            for(var p in oskin) oskin[p].className = "";
+            this.className = "current";
+            olink['href'] = this.id  + ".css";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+  <div id="changecolor">
+    <li id="red"></li>
+    <li id="green" class="current"></li>
+    <li id="black"></li>
+  </div>
+  <div id="title">
+    <ul>
+      <li><a href="#">新闻</a></li>
+      <li><a href="#">娱乐</a></li>
+      <li><a href="#">体育</a></li>
+      <li><a href="#">电影</a></li>
+      <li><a href="#">音乐</a></li>
+      <li><a href="#">旅游</a></li>
+    </ul>
+  </div>
+  </body>
+</html>

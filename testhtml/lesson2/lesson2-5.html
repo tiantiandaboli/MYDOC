@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>www</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #cho{
+    text-align: center;
+  }
+  #sho{
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background: blue;
+    margin: 10px auto;
+  }
+  #sho p{
+    color:white;
+  }
+</style>
+<script type="text/javascript">
+  function tho() {
+    var rho = document.getElementsByTagName('input')[0].value;
+    var who = document.getElementsByTagName('input')[1].value;
+    document.getElementById('sho').style[rho] = who;
+    console.log(qho.style);
+  }
+  function gho(){
+    document.getElementById('sho').removeAttribute("style");
+ 
+  }
+</script>
+<body>
+  <div id="cho">
+    <p>shuxingming : <input type="text" value="background"></p>
+    <p>shuxingzhi1 : <input type="text" value="black"></p>
+    <button onclick="tho()">queren</button>
+    <button onclick="gho()">chongzhi</button>
+  </div>
+  <div id="sho"><p>dsgfhhgjhl</p></div>
+</body>
+</html> 

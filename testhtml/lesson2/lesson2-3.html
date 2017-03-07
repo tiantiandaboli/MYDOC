@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>www</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #www{
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+  }
+</style>
+<script type="text/javascript">
+  function sum() {
+    var arr = document.getElementsByTagName('input')[0].value.split(',');
+    var ans = 0;
+    for(i=0;i<arr.length;i++){
+      ans +=arr[i]*1; 
+    }
+    document.getElementById('www').innerHTML = ans;
+  }
+  function wro(){
+    document.getElementsByTagName('input')[0].value = document.getElementsByTagName('input')[0].value.replace(/[^(\d)|(,)]/,"");
+  }
+</script>
+<body>
+  <div><input type="text" name="" value="1,2,4,4" onkeyup="wro()">输入数字求和，数字之间用半角","号分隔</div>
+  <div><button onclick="sum()">sum</button></div>
+  <div id="www"></div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wannianli</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #main{
+    width: 250px;
+    height: 250px;
+    margin: 10px auto;
+    background: lightgrey;
+  }
+  table{
+    padding:8px;
+  }
+  td{
+    width: 50px;
+    height: 50px;
+    background: black;
+    color: white;
+    text-align: center;
+    border: solid;
+    border-width: : 8px;
+    border-color: lightgrey;
+  }
+  p{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: '微软雅黑';
+  }
+  #bun{
+    width: 230px;
+    height: 50px;
+    border: solid;
+    border-width: : 8px;
+    border-color: lightgrey;
+    text-align: center;
+  }
+</style>
+<script type="text/javascript">
+  window.onload = function () {
+    var gho = document.getElementsByTagName('td');
+    var tho = document.getElementById('bun').getElementsByTagName('span');
+    console.log(tho);
+    for(i=0;i<gho.length;i++){
+      gho[i].index = i;
+      gho[i].onmouseover = function() {
+        for(j=0;j<gho.length;j++){
+          gho[j].style.background = "black";
+          gho[j].style.color = "white";
+          tho[j].style.display = "none";
+        }
+        this.style.background = "white";
+        this.style.color = "pink";
+        document.getElementById('bun').getElementsByTagName('p')[0].innerHTML = parseInt(this.index)+1 +"月节日";
+        tho[this.index].style.display = "block";
+      }
+    }
+  }
+</script>
+<body>
+  <div id="main">
+    <table>
+      <tr>
+        <td ><p>1</p><p>JAN</p></td>
+        <td><p>2</p><p>JAN</p></td>
+        <td><p>3</p><p>JAN</p></td>
+        <td><p>4</p><p>JAN</p></td>
+      </tr>
+      <tr>
+        <td><p>5</p><p>JAN</p></td>
+        <td><p>6</p><p>JAN</p></td>
+        <td><p>7</p><p>JAN</p></td>
+        <td><p>8</p><p>JAN</p></td>
+      </tr>
+      <tr>
+        <td><p>9</p><p>JAN</p></td>
+        <td><p>10</p><p>JAN</p></td>
+        <td><p>11</p><p>JAN</p></td>
+        <td><p>12</p><p>JAN</p></td>
+      </tr>
+    </table>
+    <div id="bun">
+      <p>月节日</p>
+      <p><span>11111</span></p>
+      <p><span  style="display: none;">22222</span></p>
+      <p><span  style="display: none;">33333</span></p>
+      <p><span  style="display: none;">44444</span></p>
+      <p><span  style="display: none;">55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+      <p><span>55555</span></p>
+    </div>
+  </div>
+</body>
+</html> 

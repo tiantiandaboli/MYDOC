@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wannianli</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #main{
+    width: 110px;
+    height: 260px;
+    margin: 10px auto;
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  input{
+    margin: 10px;
+  }
+  #choice{
+    margin-top: 10px;
+  }
+  #ttt{
+    border-bottom: solid;
+    border-color: black;
+    border-width: 1px;
+  }
+</style>
+<script type="text/javascript">
+window.onload = function ()
+{
+  var oA = document.getElementsByTagName("a")[0]; 
+  var oInput = document.getElementsByTagName("input");
+  var oLabel = document.getElementsByTagName("span")[0];
+  var isCheckAll = function ()
+  {
+    for (var i = 1, n = 0; i < oInput.length; i++)
+    {
+      oInput[i].checked && n++  
+    }
+    oInput[0].checked = n == oInput.length - 1;
+    oLabel.innerHTML = oInput[0].checked ? "全不选" : "全选"
+  };
+  //全选/全不选
+  oInput[0].onclick = function ()
+  {
+    for (var i = 1; i < oInput.length; i++)
+    {
+      oInput[i].checked = this.checked      
+    }
+    isCheckAll()
+  };
+  //反选
+  oA.onclick = function ()
+  {
+    for (var i = 1; i < oInput.length; i++)
+    {
+      oInput[i].checked = !oInput[i].checked
+    }
+    isCheckAll()
+  };
+  //根据复选个数更新全选框状态
+  for (var i = 1; i < oInput.length; i++)
+  {
+    oInput[i].onclick = function ()
+    {
+      isCheckAll()
+    } 
+  } 
+}
+
+</script>
+<body>
+  <div id="main">
+    <div id="ttt"><input type="checkbox" onclick="gho()"><span>全选</span><a onclick="who()"> 反选</a></div>
+    <div id="choice">
+       <p><input type="checkbox">111</p>
+       <p><input type="checkbox">222</p>
+       <p><input type="checkbox">333</p>
+       <p><input type="checkbox">444</p>
+       <p><input type="checkbox">555</p>
+       <p><input type="checkbox">666</p>
+    </div>
+  </div>
+</body>
+</html> 

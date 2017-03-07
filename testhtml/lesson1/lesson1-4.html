@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>www</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .block{
+    float: left;
+    background-color: black;
+    width: 22%;
+    height: 50%;
+    margin: 10px;
+  }
+  #os{
+    text-align: center;
+    margin: 1em;
+  }
+  #os2{
+    width: 30%;
+    height: 200px;
+    margin: 10px auto;
+  }
+</style>
+<script type="text/javascript">
+  function hh(){
+    for(i=0;i<3;i++){
+      document.getElementsByClassName('block')[i].style.backgroundColor = "red";
+    }
+  }
+</script>
+<body>
+  <div id="os">
+    <p><button onclick="hh()">click3333333333333333333</button></p>
+  </div>
+  <div id="os2">
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+  </div>
+</body>
+</html>

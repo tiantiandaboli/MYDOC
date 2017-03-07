@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3Zz</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #oBox{
+    width: 300px;
+    height: 100px;
+    border: solid;
+    border-color: blue;
+    border-width: 1px;
+    background-color: lightblue;
+    color: white;
+    margin: 10px auto;
+  }
+  input{
+    background: blue;
+    font-weight: 600;
+    color: white;
+    padding: 3px;
+    margin: 5px 3px;
+  }
+</style>
+<script type="text/javascript">
+window.onload = function(){       
+  var qho = document.getElementsByTagName('div');
+  var who = document.getElementsByTagName('input');
+  var c = getComputedStyle(qho[0], null)['backgroundColor'];   
+  who[0].onclick = function gho() {
+    alert("width:" + qho[0].offsetWidth +"px"+ "\nheight:" + qho[0].offsetHeight +"px"+"\nbackground:" + c);
+  }
+  who[1].onclick = function yho() {
+    qho[0].style.width = 400 + "px";
+    qho[0].style.height = 300 + "px";
+    qho[0].style.background = "orange";
+    for(i=0;i<who.length;i++){
+      who[i].style.background = "orange";
+    }
+  }
+  who[2].onclick = function uho() {
+    qho[0].style.width = 300 + "px";
+    qho[0].style.height = 100 + "px";
+    qho[0].style.background = "lightblue";
+    for(i=0;i<who.length;i++){
+      who[i].style.background = "blue";
+    }
+  }
+}
+</script>
+<body>
+  <div id="oBox">
+    <input type="button" value="Get Style" onclick="gho()"><input type="button" value="Set Style" onclick="yho()"><input type="button" value="Default Style" onclick="uho()">
+  </div>
+</body>
+</html> 

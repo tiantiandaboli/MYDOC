@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3Zz</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+  }
+  div{
+    width: 98%;
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
+    height: 30px;
+    margin: 10px auto;
+    background: #DFDADA;
+    line-height: 30px;
+  }
+  p{
+    width: 98%;
+    margin: 10px auto;
+  }
+  input{
+    margin: 0 5px;
+  }
+</style>
+<script type="text/javascript">
+  var qho = document.getElementsByTagName('div');
+  var yho = document.getElementsByTagName('input');
+  function gho() {
+    var arr1 = qho[0].innerHTML.split(",");
+    if(arr1.length==12){
+      arr1.shift();
+      arr1 = arr1.join(",");
+      qho[0].innerHTML = arr1;
+      yho[0].value = "add1"
+    }
+    else{
+      arr1.unshift("January(1)");
+      arr1 = arr1.join(",");
+      qho[0].innerHTML = arr1;
+      yho[0].value = "delete1";
+    }
+  }
+  function who(){
+    var arr1 = qho[0].innerHTML.split(",");
+    if(arr1.length==12){
+      arr1.pop();
+      arr1 = arr1.join(",");
+      qho[0].innerHTML = arr1;
+      yho[1].value = "delete1";
+    }
+    else{
+      arr1.push("December(12)");
+      arr1 = arr1.join(",");
+      qho[0].innerHTML = arr1;
+      yho[1].value = "add1";
+    }
+  }
+  function uho() {
+    var str1 = ",0,1,2,3,4,5,6,7,8,9";
+    qho[1].innerHTML = qho[1].innerHTML +str1
+  }
+</script>
+<body>
+  <div>January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)</div>
+  <p><input type="button" value="add1" onclick="gho()"><input type="button" value="add12" onclick="who()"></p>
+  <div>0,1,2,3,4,5,6,7,8,9</div>
+  <p><input type="button" value="copy" onclick="uho()"><input type="button" value="reset" onclick="bho()"></p>
+  <div>red,green,blue,white,yellow,black,brown</div>
+  <p><input type="button" value="reset"><input type="button" value="delete3"><input type="button" value="delete2-3"><input type="button" value="cha"><input type="button" value="replace"></p>
+</body>
+</html> 

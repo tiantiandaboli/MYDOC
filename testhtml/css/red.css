@@ -1,0 +1,12 @@
+
+body{
+	background:#FDD;	
+}
+#title{
+
+	border-color:#fff;	
+}
+#title li{
+	border-color:#fff;	
+	background:red;
+}

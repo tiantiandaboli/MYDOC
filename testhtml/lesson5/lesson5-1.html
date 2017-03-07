@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3Zz</title>
+</head>
+<style type="text/css">
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+  }
+  div{
+    width: 300px;
+    height: 30px;
+    margin: 10px auto;
+    background: #BDB8B8;
+  }
+  #uho{
+    width:200px;
+    height: 20px;
+    background: lightgrey;
+    color:white;
+    margin: 5px;
+  }
+  ul{
+    position: absolute;
+    list-style-type: none;
+  }
+  li{
+    background: black;
+    color:white;
+    border: solid;
+    border-width: 1px;
+    border-color: grey;
+    width: 130px;
+    padding-left: 70px;
+  }
+</style>
+<script type="text/javascript">
+  var tho = document.getElementsByTagName('ul');
+  var eho = document.getElementById('uho')
+  function gho(){
+    if (tho[0].style.display == "none") {
+      tho[0].style.display = "block";
+    }
+    else{
+      tho[0].style.display = "none";
+    }
+  }
+  window.onload = function(){
+    var yho = document.getElementsByTagName('li');
+    for(i=0;i<yho.length;i++){
+      yho[i].onmouseover = function(){
+        for(j=0;j<yho.length;j++){
+          yho[j].style.background = "black";
+        }
+        this.style.background = "lightgrey";
+      }
+      yho[i].onclick = function(){
+        tho[0].style.display = "none";
+        uho.value = this.innerHTML;
+      }
+    }
+  }
+</script>
+<body>
+  <div>
+    <input type="button" value="please choose" id="uho" onclick="gho()">
+    <input type="button" value="select">
+    <ul style="display: none;">
+      <li>11111</li>
+      <li>22222</li>
+      <li>33333</li>
+    </ul>
+  </div>
+</body>
+</html> 
